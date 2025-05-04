@@ -1,0 +1,96 @@
+classDiagram
+    class Avion {
+        +String modelo
+        +Int capacidad
+        +despegar() : Void
+        +aterrizar() : Void
+    }
+    
+    class AvionComercial {
+        +Int numPasajeros
+        +Bool servicioABordo
+        +abordaje() : Void
+        +servirComida() : Void
+    }
+    
+    class AvionCarga {
+        +Float capacidadCarga
+        +String tipoCarga
+        +cargar() : Void
+        +descargar() : Void
+    }
+    
+    class AvionMilitar {
+        +String tipoArmamento
+        +Bool camuflaje
+        +atacar() : Void
+        +realizarManiobra() : Void
+    }
+    
+    Avion <|-- AvionComercial
+    Avion <|-- AvionCarga
+    Avion <|-- AvionMilitar
+    
+    class Canino {
+        +String raza
+        +Int edad
+        +ladrar() : Void
+        +comer() : Void
+    }
+    
+    class PerroDomestico {
+        +String nombreDueno
+        +Bool entrenado
+        +jugar() : Void
+        +dormir() : Void
+    }
+    
+    class PerroGuardia {
+        +Int nivelAlerta
+        +Bool certificado
+        +vigilar() : Void
+        +atacarIntruso() : Void
+    }
+    
+    class PerroGuia {
+        +String pacienteAsignado
+        +Int anosEntrenamiento
+        +guiar() : Void
+        +detectarObstaculo() : Void
+    }
+
+    Canino <|-- PerroDomestico
+    Canino <|-- PerroGuardia
+    Canino <|-- PerroGuia
+    
+    class Persona {
+        +String nombre
+        +Int edad
+        +hablar() : Void
+        +caminar() : Void
+    }
+    
+    class Estudiante {
+        +String carrera
+        +Float promedio
+        +estudiar() : Void
+        +presentarExamen() : Void
+    }
+    
+    class Empleado {
+        +String empresa
+        +Float salario
+        +trabajar() : Void
+        +cobrar() : Void
+    }
+    
+    class Deportista {
+        +String deporte
+        +Int medallaGanadas
+        +entrenar() : Void
+        +competir() : Void
+    }
+    
+    Persona <|-- Estudiante
+    Persona <|-- Empleado
+    Persona <|-- Deportista
