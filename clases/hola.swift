@@ -1,3 +1,9 @@
 import Foundation
 
-print("Hola bish")
+var queso = readLine()!
+
+print(queso)
+
+
+print("Pulse una letra pa salir xd")
+_ = readLine()

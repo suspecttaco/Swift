@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Swift}/swift-herencia",
+            "name": "Debug swift-herencia (swift-herencia)",
+            "program": "${workspaceFolder:Swift}/swift-herencia/.build/debug/swift-herencia",
+            "preLaunchTask": "swift: Build Debug swift-herencia (swift-herencia)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Swift}/swift-herencia",
+            "name": "Release swift-herencia (swift-herencia)",
+            "program": "${workspaceFolder:Swift}/swift-herencia/.build/release/swift-herencia",
+            "preLaunchTask": "swift: Build Release swift-herencia (swift-herencia)"
+        }
+    ]
+}
