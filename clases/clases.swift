@@ -2,11 +2,11 @@ import Foundation
 
 // Definición de la clase Nota
 class Nota {
-    var titulo: String
-    var contenido: String
-    var fechaCreacion: Date
-    var etiqueta: String?
-    var esImportante: Bool
+    private var titulo: String
+    private var contenido: String
+    private var fechaCreacion: Date
+    private var etiqueta: String?
+    private var esImportante: Bool
 
     // Inicializador de la clase Nota
     init(titulo: String, contenido: String, fechaCreacion: Date = Date(), etiqueta: String? = nil, esImportante: Bool = false) {
@@ -25,6 +25,10 @@ class Nota {
     // Método para marcar la nota como importante
     func marcarImportante() {
         self.esImportante = true
+    }
+
+    func obtenerTitulo() -> String {
+        return titulo
     }
 
     // Método para mostrar los detalles de la nota
@@ -87,7 +91,7 @@ func editarContenidoNota() {
 func eliminarNota() {
     print("Lista de notas:")
     for (indice, nota) in notas.enumerated() {
-        print("\(indice): \(nota.titulo)")
+        print("\(indice): \(nota.obtenerTitulo())")
     }
     print("Ingrese el índice de la nota a eliminar:")
     let indice = Int(readLine() ?? "0") ?? 0

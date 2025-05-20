@@ -9,10 +9,10 @@ enum Estado {
 
 // Definición de la clase Tarea
 class Tarea {
-    var descripcion: String
-    var fechaVencimiento: Date
-    var prioridad: Int
-    var estado: Estado
+    private var descripcion: String
+    private var fechaVencimiento: Date
+    private var prioridad: Int
+    private var estado: Estado
 
     // Inicializador de la clase Tarea
     init(descripcion: String, fechaVencimiento: Date, prioridad: Int, estado: Estado = .pendiente) {
@@ -55,8 +55,35 @@ func mostrarMenu() {
     3. Cambiar prioridad de tarea
     4. Editar descripción de tarea
     5. Verificar estado de tarea
-    6. Salir
+    6. Mostrar tareas
+    7. Salir
     """)
+}
+
+// Métodos de solo lectura para acceder a las propiedades privadas de Tarea
+extension Tarea {
+    func verDescripcion() -> String { return self.descripcion }
+    func verFechaVencimiento() -> Date { return self.fechaVencimiento }
+    func verPrioridad() -> Int { return self.prioridad }
+}
+
+// Función para mostrar todas las tareas guardadas
+func mostrarTareas() {
+    if tareas.isEmpty {
+        print("No hay tareas guardadas.")
+    } else {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        for (indice, tarea) in tareas.enumerated() {
+            // Acceso a propiedades privadas a través de métodos o cambiando a propiedades públicas si lo prefieres
+            print("Tarea \(indice):")
+            print("  Descripción: \(tarea.verDescripcion())")
+            print("  Fecha de vencimiento: \(dateFormatter.string(from: tarea.verFechaVencimiento()))")
+            print("  Prioridad: \(tarea.verPrioridad())")
+            print("  Estado: \(tarea.verificarEstado())")
+            print("-----------------------------")
+        }
+    }
 }
 
 // Función para crear una nueva tarea
@@ -81,7 +108,7 @@ func marcarTareaComoCompletada() {
     print("Ingrese el índice de la tarea a marcar como completada:")
     let indice = Int(readLine() ?? "0") ?? 0
     if indice >= 0 && indice < tareas.count {
-        tareas[indice].marcarComoCompletada()
+        tareas[indice].marcarCompletada()
         print("Tarea marcada como completada.")
     } else {
         print("Índice inválido.")
@@ -146,6 +173,8 @@ func main() {
         case 5:
             verificarEstadoTarea()
         case 6:
+            mostrarTareas()
+        case 7:
             continuar = false
         default:
             print("Opción inválida.")

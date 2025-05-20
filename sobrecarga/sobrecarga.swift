@@ -4,7 +4,7 @@ import Swift
 class Calculadora {
 
     func calcularAreaRectangulo(base: Int, altura: Int) -> Int {
-        
+
         let resultado: Int = base * altura
 
         return resultado
@@ -98,4 +98,5 @@ y2 = Int(readLine()!)!
 
 print("El resultado es: \(objeto.calcularAreaTriangulo(x1: x1, y1: y1, x2: x2, y2: y2))", terminator: "\n\n")
 
+print("Presione Enter para salir....", terminator: "")
 _ = readLine()
